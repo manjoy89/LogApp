@@ -4,7 +4,7 @@
   "main": "readfile.js",
   "scripts": {
     "ng": "ng",
-    "start": "node readfile.js & ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
