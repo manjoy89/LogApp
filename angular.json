@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "LogApp": {
+    "logappgpc": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/LogApp",
+            "outputPath": "dist/logappgpc",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -61,18 +61,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "LogApp:build"
+            "browserTarget": "logappgpc:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "LogApp:build:production"
+              "browserTarget": "logappgpc:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "LogApp:build"
+            "browserTarget": "logappgpc:build"
           }
         },
         "test": {
@@ -106,7 +106,7 @@
         }
       }
     },
-    "LogApp-e2e": {
+    "logappgpc-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -115,11 +115,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "LogApp:serve"
+            "devServerTarget": "logappgpc:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "LogApp:serve:production"
+              "devServerTarget": "logappgpc:serve:production"
             }
           }
         },
@@ -135,5 +135,5 @@
       }
     }
   },
-  "defaultProject": "LogApp"
+  "defaultProject": "logappgpc"
 }
