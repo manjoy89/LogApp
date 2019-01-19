@@ -9,8 +9,8 @@ app.use('/', (req, res) => {
    
     fs.readFile('/Users/pctr487330/Desktop/Newfile.txt', (err, data) => {
         if (err) throw err;
-        res.send("Hello Manoj");
+        res.send(data);
     });
 });
 
-app.listen(5000);
+app.listen(8080);

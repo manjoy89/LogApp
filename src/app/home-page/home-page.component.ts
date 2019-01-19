@@ -15,7 +15,7 @@ export class HomePageComponent implements OnInit {
 
   constructor(private http: HttpClient) { 
     var myInterval = setInterval(() =>{
-    this.http.get('http://localhost:5000/',{responseType: 'text'}).subscribe(data=>{
+    this.http.get('http://localhost:8080/',{responseType: 'text'}).subscribe(data=>{
 
       this.Staging = data;
       var textarea = document.getElementById('textarea_id');
