@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+
 
 
 @Component({
@@ -11,44 +11,53 @@ export class HomePageComponent implements OnInit {
 
   Content:String;
   Staging:String;
+  file:any;
+  ErrFlag:boolean = false;
+  WarnFlag:boolean = false;
+  ErrCount:number = 0;
+  WarnCount:number = 0;
 
-
-  constructor(private http: HttpClient) { 
-    var myInterval = setInterval(() =>{
-    this.http.get('http://localhost:8080/',{responseType: 'text'}).subscribe(data=>{
-
-      this.Staging = data;
-      var textarea = document.getElementById('textarea_id');
-      textarea.style.backgroundColor = "";
-      textarea.scrollTop = textarea.scrollHeight;
-      this.Content = this.Staging.split('Error').join('<=============================Error==========================>');
-    })
-  }, 1000);
-   
- 
+  constructor() { 
   }
 
   ngOnInit() {
 
   }
-/*
+
   public onChange(fileList: FileList): void {
     let file = fileList[0];
-    console.log(file);
     let fileReader: FileReader = new FileReader();
     let self = this;
     console.log(file);
     fileReader.onloadend = function(x) {
-      self.Content = fileReader.result as string;
+      self.Staging = fileReader.result as string;
+      if (self.Staging.indexOf('Error') >= 0){
+        self.ErrFlag = true;
+      }
+      if (self.Staging.indexOf('Warning') >= 0){
+        self.WarnFlag = true;
+      }
+      self.ErrCount = (self.Staging.match(/Error/g) || []).length;
+      self.WarnCount = (self.Staging.match(/Warning/g) || []).length;
+      self.Content = self.Staging.split('Error').join('<=============================Error==========================>');
     }
+    self.ErrCount = 0;
+    self.WarnCount = 0;
     var myInterval = setInterval(function() {
     fileReader.readAsText(file);
+    self.ErrFlag = false;
+    self.WarnFlag = false;
     var textarea = document.getElementById('textarea_id');
     textarea.scrollTop = textarea.scrollHeight;
   }, 1000);
   }  
-  */
 
- 
+  cleardata(){
+    if(window.confirm('Are sure you want to clear the Logs ?')){
+    this.Content = "";
+   }
+}
+  
+
 
 }

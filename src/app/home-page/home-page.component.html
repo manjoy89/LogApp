@@ -3,15 +3,40 @@
       <a routerLink="/" class="logo">LogApp!</a>
       <nav>
         <ul>
-          <li><a routerLink="/">Home</a></li>
-          <li><a routerLink="/about">About</a></li>
-          <li><a routerLink="/contact">Contact us</a></li>
+          <li><a routerLink="/">Genuine Parts Company</a></li>
         </ul>
       </nav>
     </div>
   </header>
   <body>
       <div class="container">
-          <textarea ng-class='color-red' readonly rows="40" cols="200" id="textarea_id" style="color:black" >{{Content}}</textarea>
-      </div> 
+          <textarea readonly rows="40" cols="200" id="textarea_id" [class]="ErrFlag==true ? 'redclass' : 'blackclass'" >{{Content}}</textarea>
+      </div>
+      <div class="container">
+        <div class="example-button-row">
+          <button mat-stroked-button color="primary" (click)="fileInput.click()">UPLOAD LOG!</button>
+          <input #fileInput type="file" (change)="onChange($event.target.files)" style="display:none">
+        </div>
+        <div class="example-button-row-clear">
+          <button mat-stroked-button color="warn" (click)="cleardata()">CLEAR LOG!</button>
+        </div>
+      </div>
+      <div class="container">
+          <div>
+            <div>
+              <label>Errors</label>
+            </div>
+            <div>
+              <ngx-counter size="medium" theme="red" [(ngModel)]="ErrCount" limit=0></ngx-counter>
+            </div>
+          </div>
+          <div>
+              <div>
+                <label>Warnings</label>
+              </div>
+              <div>
+                <ngx-counter size="medium" theme="gold" bgcolor="#F5F5DC" [(ngModel)]="WarnCount" limit=0></ngx-counter>
+              </div>
+          </div>
+      </div>
   </body>

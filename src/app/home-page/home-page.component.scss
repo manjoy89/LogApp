@@ -35,3 +35,25 @@ header {
   }
 }
 
+.redclass{
+    color: red;
+}
+
+.blackclass{
+    color: black;
+}
+
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+  color: #7700FF;
+  display:inline-block;
+}
+
+.example-button-row-clear button,
+.example-button-row-clear a {
+  margin-right: 8px;
+  color: red;
+}
+
+
